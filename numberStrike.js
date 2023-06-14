@@ -15,39 +15,36 @@ while (
 
 answer = [`${answerFirstNum}`, `${answerSecondNum}`, `${answerThirdNum}`];
 
-console.log(answer);
-
 //사용자가 정답을 입력하고 그 입력받은 것을 배열로 담는 로직
 function gameStart() {
   let userInputNum = document.getElementById('user-input-num').value;
   let inputNumArray = userInputNum.split('');
-  console.log(inputNumArray);
 
-  //볼의 경우의 수 - 배열매서드를 사용
+  //볼의 경우의 수
   let ballNum = 0;
+  for (let i = 0; i < 3; i++) {
+    for (let j = 0; j < 3; j++) {
+      if (inputNumArray[i].includes(answer[j])) {
+        ballNum++;
+      }
+    }
+  }
+ 
+  //스트라이크의 경우의수 - 배열매서드(forEach)를 사용
+  let StrikeNum = 0;
+
   inputNumArray.forEach((item, index) => {
     if (item.includes(answer[index])) {
-      ballNum++;
+      StrikeNum++;
     }
   });
 
+  ballNum = ballNum - StrikeNum;
   
-
-  console.log(ballNum);
-
-  //스트라이크의 경우의수
-  let StrikeNum = 0;
-  for (let i = 0; i < 3; i++) {
-    if (
-      inputNumArray[0] === answer[0] ||
-      inputNumArray[1] === answer[1] ||
-      inputNumArray[2] === answer[2]
-    ) {
-      StrikeNum++;
+  if(StrikeNum === 3){
+      alert("정답을 맞췄습니다! 게임이 종료됩니다");
     }
-  }
-
-  console.log(StrikeNum);
-
-  console.log(`${ballNum}B${StrikeNum}S`);
+    let hintMessage = document.getElementById('hint')
+    
+    hintMessage.innerHTML= `${ballNum}B${StrikeNum}S`;
 }
