@@ -45,7 +45,7 @@ function gameStart() {
   ballNum = ballNum - StrikeNum;
 
   console.log(counter);
-  counter += 1;
+  counter ++;
 
 
   if(StrikeNum === 3){
@@ -56,5 +56,3 @@ function gameStart() {
     hintMessage.innerHTML= `${ballNum}B${StrikeNum}S`;
     
 }
-
-gameStart();
