@@ -15,6 +15,9 @@ while (
 
 answer = [`${answerFirstNum}`, `${answerSecondNum}`, `${answerThirdNum}`];
 
+//하하 ^^ 너는 전역변수란다.
+let counter = 0;
+
 //사용자가 정답을 입력하고 그 입력받은 것을 배열로 담는 로직
 function gameStart() {
   let userInputNum = document.getElementById('user-input-num').value;
@@ -40,11 +43,18 @@ function gameStart() {
   });
 
   ballNum = ballNum - StrikeNum;
-  
+
+  console.log(counter);
+  counter += 1;
+
+
   if(StrikeNum === 3){
-      alert("정답을 맞췄습니다! 게임이 종료됩니다");
+      alert(`${counter}번째 시도! 정답을 맞췄습니다! 게임이 종료됩니다`);
     }
     let hintMessage = document.getElementById('hint')
     
     hintMessage.innerHTML= `${ballNum}B${StrikeNum}S`;
+    
 }
+
+gameStart();
