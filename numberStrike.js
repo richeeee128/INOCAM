@@ -66,7 +66,6 @@ function isIncludes(answer, inputNumber) {
     }
   })
 
-
   ballCount = ballCount - strikeCount;
 
   console.log(ballCount);
