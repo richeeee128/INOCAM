@@ -1,0 +1,93 @@
+.layout {
+  max-width: 1200px;
+  min-width: 800px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.Header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+}
+.inputbox {
+  height: 80px;
+  padding: 5px;
+  background-color: rgb(255, 239, 241);
+  display: flex;
+  align-items: center;
+}
+
+.input {
+  margin-left: 20px;
+}
+
+.input > input {
+  border-radius: 5px;
+  border: none;
+  margin: 10px;
+  height: 33px;
+  width: 230px;
+  padding-left: 10px;
+}
+
+.creatBtn {
+  width: 100px;
+  height: 35px;
+  border: none;
+  border-radius: 8px;
+  background-color: pink;
+  font-weight: bold;
+  margin-left: 50px;
+}
+.creatBtn:hover {
+  background-color: rgb(227, 83, 107);
+  color: #fff;
+}
+
+.Working {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin: 10px;
+}
+
+.content {
+  border: 2px solid pink;
+  border-radius: 15px;
+  width: 230px;
+  height: 150px;
+  padding: 15px;
+}
+
+.delete {
+  width: 100px;
+  height: 30px;
+  border: 2px solid rgb(247, 102, 102);
+  background-color: #fff;
+  border-radius: 5px;
+  font-size: 15px;
+  margin: 20px 5px;
+}
+.delete:hover {
+  background-color: rgb(247, 102, 102);
+  color: #fff;
+  font-weight: bold;
+}
+.done {
+  width: 100px;
+  height: 30px;
+  border: 2px solid blue;
+  background-color: #fff;
+  border-radius: 5px;
+  font-size: 15px;
+  margin: 20px 5px 0 15px;
+}
+
+.done:hover {
+  background-color: rgb(65, 52, 249);
+  border: none;
+  color: #fff;
+  font-weight: bold;
+}
