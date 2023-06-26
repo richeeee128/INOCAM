@@ -46,7 +46,8 @@
   color: #fff;
 }
 
-.Working {
+.Working,
+.Done {
   display: flex;
   flex-wrap: wrap;
   gap: 30px;

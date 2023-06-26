@@ -43,8 +43,8 @@ function App() {
     setTodo(updateTodo);
   };
 
-  const workingTodos = todo.filter((item) => !item.isDone); // 작업 중인 Todo 항목들
-  const doneTodos = todo.filter((item) => item.isDone); // 완료된 Todo 항목들
+  const workingTodos = todo.filter((item) => !item.isDone);
+  const doneTodos = todo.filter((item) => item.isDone);
 
   return (
     <div className='layout'>
@@ -89,8 +89,8 @@ function App() {
           </div>
         ))}
       </div>
+      <h4>Done...! 🏖️</h4>
       <div className='Done'>
-        <h4>Done...! 🏖️</h4>
         {doneTodos.map((item) => (
           <div key={item.id} className='content'>
             <h2>{item.title}</h2>
