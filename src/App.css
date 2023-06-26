@@ -50,8 +50,9 @@
 .Done {
   display: flex;
   flex-wrap: wrap;
+
   gap: 30px;
-  margin: 10px;
+  margin: 10px 10px 10px 28px;
 }
 
 .content {
@@ -60,6 +61,10 @@
   width: 230px;
   height: 150px;
   padding: 15px;
+}
+
+.content > h3 {
+  margin: 10px 0px;
 }
 
 .delete {

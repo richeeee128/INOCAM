@@ -1,7 +1,7 @@
 function TodoBtn({ item, removeBtn, toggleDone }) {
   return (
     <div key={item.id} className='content'>
-      <h2>{item.title}</h2>
+      <h3>{item.title}</h3>
       {item.text}
       <br />
       <button
