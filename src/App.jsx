@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
+import TodoBtn from './button';
 
 function App() {
   const [todo, setTodo] = useState([
@@ -66,53 +67,23 @@ function App() {
       <h4>Working... 💻</h4>
       <div className='Working'>
         {workingTodos.map((item) => (
-          <div key={item.id} className='content'>
-            <h2>{item.title}</h2>
-            {item.text}
-            <br />
-            <button
-              className='delete'
-              onClick={() => {
-                removeBtn(item.id);
-              }}
-            >
-              삭제
-            </button>
-            <button
-              className='done'
-              onClick={() => {
-                toggleDone(item.id);
-              }}
-            >
-              {item.isDone ? '취소' : '완료'}
-            </button>
-          </div>
+          <TodoBtn
+            key={item.id}
+            item={item}
+            removeBtn={removeBtn}
+            toggleDone={toggleDone}
+          />
         ))}
       </div>
       <h4>Done...! 🏖️</h4>
       <div className='Done'>
         {doneTodos.map((item) => (
-          <div key={item.id} className='content'>
-            <h2>{item.title}</h2>
-            {item.text}
-            <br />
-            <button
-              className='delete'
-              onClick={() => {
-                removeBtn(item.id);
-              }}
-            >
-              삭제
-            </button>
-            <button
-              className='done'
-              onClick={() => {
-                toggleDone(item.id);
-              }}
-            >
-              {item.isDone ? '취소' : '완료'}
-            </button>
-          </div>
+          <TodoBtn
+            key={item.id}
+            item={item}
+            removeBtn={removeBtn}
+            toggleDone={toggleDone}
+          />
         ))}
       </div>
     </div>
