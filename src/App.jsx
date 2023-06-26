@@ -21,6 +21,7 @@ function App() {
       id: Date.now(),
       title,
       text,
+      isDone: false,
     };
     setTodo([...todo, newTodo]);
     setTitle('');
@@ -31,6 +32,19 @@ function App() {
     const newTodo = todo.filter((todo) => todo.id !== id);
     setTodo(newTodo);
   };
+
+  const toggleDone = (id) => {
+    const updateTodo = todo.map((item) => {
+      if (item.id === id) {
+        return { ...item, isDone: !item.isDone };
+      }
+      return item;
+    });
+    setTodo(updateTodo);
+  };
+
+  const workingTodos = todo.filter((item) => !item.isDone); // 작업 중인 Todo 항목들
+  const doneTodos = todo.filter((item) => item.isDone); // 완료된 Todo 항목들
 
   return (
     <div className='layout'>
@@ -51,7 +65,7 @@ function App() {
       </div>
       <h4>Working... 💻</h4>
       <div className='Working'>
-        {todo.map((item) => (
+        {workingTodos.map((item) => (
           <div key={item.id} className='content'>
             <h2>{item.title}</h2>
             {item.text}
@@ -64,12 +78,42 @@ function App() {
             >
               삭제
             </button>
-            <button className='done'>완료</button>
+            <button
+              className='done'
+              onClick={() => {
+                toggleDone(item.id);
+              }}
+            >
+              {item.isDone ? '취소' : '완료'}
+            </button>
           </div>
         ))}
       </div>
       <div className='Done'>
         <h4>Done...! 🏖️</h4>
+        {doneTodos.map((item) => (
+          <div key={item.id} className='content'>
+            <h2>{item.title}</h2>
+            {item.text}
+            <br />
+            <button
+              className='delete'
+              onClick={() => {
+                removeBtn(item.id);
+              }}
+            >
+              삭제
+            </button>
+            <button
+              className='done'
+              onClick={() => {
+                toggleDone(item.id);
+              }}
+            >
+              {item.isDone ? '취소' : '완료'}
+            </button>
+          </div>
+        ))}
       </div>
     </div>
   );
