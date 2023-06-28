@@ -4,10 +4,16 @@ import TodoBtn from './button';
 
 function App() {
   const [todo, setTodo] = useState([
-    { id: 1, title: '리액트 공부하기', text: '입문 기초 완강' },
-    { id: 2, title: '정리하기', text: '노션에 정리하기' },
-    { id: 3, title: '레벨 1 완성하기', text: '화요일까지 완성하기!' },
+    { id: 1, title: '리액트 공부하기', text: '입문 기초 완강', isDone: false },
+    { id: 2, title: '정리하기', text: '노션에 정리하기', isDone: false },
+    {
+      id: 3,
+      title: '레벨 1 완성하기',
+      text: '화요일까지 완성하기!',
+      isDone: false,
+    },
   ]);
+
   const [title, setTitle] = useState('');
   const [text, setText] = useState('');
   const titleChangeHandler = (event) => {
@@ -17,7 +23,7 @@ function App() {
     setText(event.target.value);
   };
 
-  const clicked = () => {
+  const clickedAddTodo = () => {
     const newTodo = {
       id: Date.now(),
       title,
@@ -60,7 +66,7 @@ function App() {
         <div className='input'>
           내용 <input value={text} onChange={textChangeHandler} />
         </div>
-        <button className='creatBtn' onClick={clicked}>
+        <button className='creatBtn' onClick={clickedAddTodo}>
           추가하기
         </button>
       </div>
