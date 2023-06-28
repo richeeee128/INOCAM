@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
-import TodoBtn from './button';
+import TodoContainer from './todoContainer';
 
 function App() {
   const [todo, setTodo] = useState([
@@ -40,7 +40,7 @@ function App() {
     setTodo(newTodo);
   };
 
-  const toggleDone = (id) => {
+  const toggleState = (id) => {
     const updateTodo = todo.map((item) => {
       if (item.id === id) {
         return { ...item, isDone: !item.isDone };
@@ -73,22 +73,22 @@ function App() {
       <h4>Working... 💻</h4>
       <div className='Working'>
         {workingTodos.map((item) => (
-          <TodoBtn
+          <TodoContainer
             key={item.id}
             item={item}
             removeBtn={removeBtn}
-            toggleDone={toggleDone}
+            toggleState={toggleState}
           />
         ))}
       </div>
       <h4>Done...! 🏖️</h4>
       <div className='Done'>
         {doneTodos.map((item) => (
-          <TodoBtn
+          <TodoContainer
             key={item.id}
             item={item}
             removeBtn={removeBtn}
-            toggleDone={toggleDone}
+            toggleState={toggleState}
           />
         ))}
       </div>

@@ -1,4 +1,4 @@
-function TodoBtn({ item, removeBtn, toggleDone }) {
+function TodoContainer({ item, removeBtn, toggleState }) {
   return (
     <div key={item.id} className='content'>
       <h3>{item.title}</h3>
@@ -15,7 +15,7 @@ function TodoBtn({ item, removeBtn, toggleDone }) {
       <button
         className='done'
         onClick={() => {
-          toggleDone(item.id);
+          toggleState(item.id);
         }}
       >
         {item.isDone ? '취소' : '완료'}
@@ -23,4 +23,4 @@ function TodoBtn({ item, removeBtn, toggleDone }) {
     </div>
   );
 }
-export default TodoBtn;
+export default TodoContainer;
