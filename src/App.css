@@ -1,0 +1,30 @@
+.container {
+  padding-top: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-content: center;
+}
+
+.inputBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header {
+  text-align: center;
+}
+
+.todos {
+  display: flex;
+  gap: 20px;
+  padding-left: 30px;
+}
+.todos > div {
+  width: 120px;
+  height: 120px;
+  border: 2px solid green;
+  border-radius: 15px;
+  padding: 10px;
+}
