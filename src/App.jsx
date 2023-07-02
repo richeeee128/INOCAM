@@ -1,21 +1,14 @@
 import React, { useState } from 'react';
 import './App.css';
-import TodoContainer from './todoContainer';
+import TodoContainer from './components/TodoContainer';
+import InputBox from './components/InputBox';
 
 function App() {
-  const [todo, setTodo] = useState([
-    { id: 1, title: '리액트 공부하기', text: '입문 기초 완강', isDone: false },
-    { id: 2, title: '정리하기', text: '노션에 정리하기', isDone: false },
-    {
-      id: 3,
-      title: '레벨 1 완성하기',
-      text: '화요일까지 완성하기!',
-      isDone: false,
-    },
-  ]);
-
+  const [todo, setTodo] = useState([]);
+  const [id, setId] = useState(0);
   const [title, setTitle] = useState('');
   const [text, setText] = useState('');
+
   const titleChangeHandler = (event) => {
     setTitle(event.target.value);
   };
@@ -24,8 +17,10 @@ function App() {
   };
 
   const clickedAddTodo = () => {
+    const newId = id + 1;
+    setId(newId);
     const newTodo = {
-      id: Date.now(),
+      id: newId,
       title,
       text,
       isDone: false,
@@ -59,17 +54,13 @@ function App() {
         <p>My Todo List</p>
         <p>React</p>
       </div>
-      <div className='inputbox'>
-        <div className='input'>
-          제목 <input value={title} onChange={titleChangeHandler} />
-        </div>
-        <div className='input'>
-          내용 <input value={text} onChange={textChangeHandler} />
-        </div>
-        <button className='creatBtn' onClick={clickedAddTodo}>
-          추가하기
-        </button>
-      </div>
+      <InputBox
+        title={title}
+        text={text}
+        titleChangeHandler={titleChangeHandler}
+        textChangeHandler={textChangeHandler}
+        clickedAddTodo={clickedAddTodo}
+      />
       <h4>Working... 💻</h4>
       <div className='Working'>
         {workingTodos.map((item) => (
