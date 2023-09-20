@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>숫자야구게임</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>숫자 야구 게임을 시작합니다.</h1>
+    <div class="main">
+      <input
+        type="text"
+        id="user-input-num"
+        onchange="gameStart()"
+        maxlength="3"
+      />
+    </div>
+    <div class="section" id="hint">3자리 숫자를 입력해주세요.</div>
+    <script src="numberStrike.js"></script>
+  </body>
+</html>
